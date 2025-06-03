@@ -293,5 +293,14 @@ List of all the references used in the doc:
 
 - application we mentioned:
 
-  - TikTok
-  - Spotify
+- TikTok
+- Spotify
+
+## Running Server Tests
+
+Unit tests for the Express server are located in `Server/test`. To run them, execute:
+
+```bash
+cd Server
+npm test
+```

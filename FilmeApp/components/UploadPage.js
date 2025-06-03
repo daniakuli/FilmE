@@ -17,9 +17,10 @@ import NativeUploady, {
 import retryEnhancer, { useBatchRetry, useRetry, useRetryListener } from "@rpldy/retry-hooks";
 
 import axios from "axios";
+import { BASE_URL } from '../config';
 
 export default function UploadPage(props) {
-    const server = `http://${global.server}:4000/upload/`;
+    const server = `${BASE_URL}/upload/`;
     const [serverUploadDestUrl, setServerUploadDestUrl] = React.useState(server);
 
     const [linkToStorage, setLinkToStorage] = useState('');
@@ -175,7 +176,7 @@ export default function UploadPage(props) {
     }
 
     const handlePublish = () => {
-        axios.post(`http://${global.server}:4000/upload/`, {
+        axios.post(`${BASE_URL}/upload/`, {
             LinkToStorage:linkToStorage,
             LinkToPreviewImage:linkToPreviewImage,
             Title:title,

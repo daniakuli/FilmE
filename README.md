@@ -295,3 +295,5 @@ List of all the references used in the doc:
 
   - TikTok
   - Spotify
+
+For setup and running instructions see [docs/SETUP.md](docs/SETUP.md).

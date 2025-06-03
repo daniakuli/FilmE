@@ -1,14 +1,27 @@
-import serviceAccount from './firebase/serviceAccountKey.json' assert {type: 'json'};
 import admin from 'firebase-admin';
-import {getStorage} from 'firebase/storage'
+import { getStorage } from 'firebase/storage';
+import { initializeApp } from 'firebase/app';
+import { getAuth } from 'firebase/auth';
+import fs from 'fs';
+import path from 'path';
 
-import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
+// Load service account credentials from a path provided in the environment.
+// This avoids bundling sensitive files with the repository.
+const credentialsPath = process.env.SERVICE_ACCOUNT_KEY_PATH;
+let serviceAccount = undefined;
+if (credentialsPath) {
+  const absolutePath = path.resolve(credentialsPath);
+  const data = fs.readFileSync(absolutePath, 'utf8');
+  serviceAccount = JSON.parse(data);
+}
 
 export const bucketName = "filme-4277e.appspot.com";
 export const credentials = serviceAccount;
 export const firebaseInstance = admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount), storageBucket: "filme-4277e.appspot.com"
+  credential: serviceAccount
+    ? admin.credential.cert(serviceAccount)
+    : undefined,
+  storageBucket: bucketName,
 });
 
 export const videoDirectoryPath = 'video'

@@ -295,3 +295,13 @@ List of all the references used in the doc:
 
   - TikTok
   - Spotify
+
+## Environment Variables
+
+Create a `.env` file inside the `Server` directory containing:
+
+```
+SERVICE_ACCOUNT_KEY_PATH=path/to/serviceAccountKey.json
+```
+
+Set the `GOOGLE_APPLICATION_CREDENTIALS` environment variable to the path of the credentials JSON file used by the emotion recognition service.

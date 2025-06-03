@@ -280,7 +280,9 @@ Add commentOnce a live reaction has been recorded, users will have the option to
 
 Upload contentUsers who wish to share their audio or video content can upload it to their profile on the FilmE application. The server will receive this data and make it available to users. Content that receives more live reactions from users will become more popular and will be ranked higher on the list for new users to discover.
 
-Display statistics of specific contentUsers can view the emotional response statistics for their content on the FilmE application. By selecting a specific piece of content, the user can request data on the emotions it elicited from viewers. The server will retrieve this information from the database and transmit it back to the user's device, where it will be displayed in the form of graphs and numerical data. 
+Search contentUsers can find specific uploads by providing a title keyword or tag. The server filters uploads using these parameters and returns the matching results.
+
+Display statistics of specific contentUsers can view the emotional response statistics for their content on the FilmE application. By selecting a specific piece of content, the user can request data on the emotions it elicited from viewers. The server will retrieve this information from the database and transmit it back to the user's device, where it will be displayed in the form of graphs and numerical data.
 
 8. **# References**
 

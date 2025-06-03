@@ -6,6 +6,7 @@ import {connectToMongo} from './dbUtils.js'
 import { getUploads } from './routes/getUploads.js';
 import { getUsers } from './routes/getUsers.js';
 import { getExploreUploads } from './routes/getExploreUploads.js'
+import { searchUploads } from './routes/searchUploads.js';
 import {reactRoute} from "./routes/reaction.js";
 import {reactionsAnalytics} from "./routes/reactionsAnalytics.js";
 
@@ -17,8 +18,10 @@ connectToMongo();
 app.use('/upload', uploadRoute);
 
 app.use('/auth', authRoute);
-  
+
 app.get('/uploads', getUploads);
+
+app.get('/searchuploads', searchUploads);
 
 app.get('/profileuser', getUsers);
 

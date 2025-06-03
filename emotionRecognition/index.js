@@ -1,4 +1,3 @@
-// setx GOOGLE_APPLICATION_CREDENTIALS "D:\Projects\FilmE\emotionrecognition\credentials.json"
 const express = require('express');
 const fs = require('fs');
 const {ImageAnnotatorClient} = require('@google-cloud/vision');
@@ -6,7 +5,14 @@ const multer = require('multer');
 const {v4: uuidv4} = require('uuid');
 
 const app = express();
-const client = new ImageAnnotatorClient();
+
+// Configure the Google Vision client using credentials provided via the
+// GOOGLE_APPLICATION_CREDENTIALS environment variable when available.
+const visionOptions = {};
+if (process.env.GOOGLE_APPLICATION_CREDENTIALS) {
+    visionOptions.keyFilename = process.env.GOOGLE_APPLICATION_CREDENTIALS;
+}
+const client = new ImageAnnotatorClient(visionOptions);
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));

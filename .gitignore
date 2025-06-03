@@ -111,5 +111,8 @@ dist
 .vscode/
 
 #uploads
-Server/uploads/
+./server/uploads/
 ./emotionRecognition/uploads/
+
+# Environment configuration
+Server/.env

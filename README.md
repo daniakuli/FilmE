@@ -293,17 +293,14 @@ List of all the references used in the doc:
 
 - application we mentioned:
 
-  - TikTok
-  - Spotify
+- TikTok
+- Spotify
 
-For setup and running instructions see [docs/SETUP.md](docs/SETUP.md).
+## Running Server Tests
 
-## Environment Variables
+Unit tests for the Express server are located in `Server/test`. To run them, execute:
 
-Create a `.env` file inside the `Server` directory containing:
-
+```bash
+cd Server
+npm test
 ```
-SERVICE_ACCOUNT_KEY_PATH=path/to/serviceAccountKey.json
-```
-
-Set the `GOOGLE_APPLICATION_CREDENTIALS` environment variable to the path of the credentials JSON file used by the emotion recognition service.

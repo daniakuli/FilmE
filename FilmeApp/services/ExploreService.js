@@ -1,8 +1,9 @@
 import axios from 'axios';
+import { BASE_URL } from '../config';
 
 export function getUploads() {
     return new Promise((resolve, reject) => {
-        axios.get(`http://${global.server}:4000/exploreuploads`)
+        axios.get(`${BASE_URL}/exploreuploads`)
         .then(response => {
             resolve(response.data);
         })

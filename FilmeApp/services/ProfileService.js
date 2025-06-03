@@ -1,8 +1,9 @@
 import axios from 'axios';
+import { BASE_URL } from '../config';
 
 export function getCurrentUser(){
     return new Promise((resolve, reject) =>{
-        axios.get(`http://${global.server}:4000/profileuser`)
+        axios.get(`${BASE_URL}/profileuser`)
             .then(response => {
                 resolve(response.data);
             })
@@ -14,7 +15,7 @@ export function getCurrentUser(){
 
 export function getUsersUploads(){
     return new Promise((resolve, reject) => {
-        axios.get(`http://${global.server}:4000/uploads`)
+        axios.get(`${BASE_URL}/uploads`)
             .then(response => {
                 resolve(response.data);
             })

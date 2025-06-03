@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, Dimensions, TouchableOpacity, Modal, ScrollView } from 'react-native';
 import { BarChart } from 'react-native-chart-kit';
 import axios from 'axios';
+import { BASE_URL } from '../config';
 import { stylesGraph } from '../styles/style';
 
 export default class GraphPage extends React.Component {
@@ -24,7 +25,7 @@ export default class GraphPage extends React.Component {
 
   fetchAnalyticsData = () => {
     axios
-      .get(`http://${global.server}:4000/analytics/${this.state.contentObjectID}`)
+      .get(`${BASE_URL}/analytics/${this.state.contentObjectID}`)
       .then(response => {
         const { reactions } = response.data;
         this.setState({ datasets: reactions, isLoading: false });

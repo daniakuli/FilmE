@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { BASE_URL } from '../config';
 
 export function sendReactions(uri, time, mediaId) {
     let formData = new FormData();
@@ -19,11 +20,11 @@ export function sendReactions(uri, time, mediaId) {
     formData.append('timestamp', "0" + minutes + ":" + seconds);
     formData.append('reactionTo', mediaId);
 
-    axios.get(`http://${global.server}:4000/profileuser`)
+    axios.get(`${BASE_URL}/profileuser`)
     .then(response => {
         formData.append('userReacting', response.data._id);
         
-        axios.post(`http://${global.server}:4000/react`, formData, {
+        axios.post(`${BASE_URL}/react`, formData, {
             headers: { 'Content-Type': 'multipart/form-data' },
         }).then(res => {
             console.log(res);

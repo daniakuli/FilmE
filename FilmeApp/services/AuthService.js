@@ -1,8 +1,9 @@
 import axios from 'axios';
+import { BASE_URL } from '../config';
 
 export function register(email, password, username) {
     return new Promise((resolve, reject) => {
-        axios.post(`http://${global.server}:4000/auth/register`, {
+        axios.post(`${BASE_URL}/auth/register`, {
             email: email, password: password, username: username
         }, {timeout: 15000})
             .then(response => {
@@ -17,7 +18,7 @@ export function register(email, password, username) {
 
 export function login(email, password) {
     return new Promise((resolve, reject) => {
-        axios.post(`http://${global.server}:4000/auth/login`, {email: email, password: password}, {timeout: 15000})
+        axios.post(`${BASE_URL}/auth/login`, {email: email, password: password}, {timeout: 15000})
             .then(response => {
                 resolve();
             })

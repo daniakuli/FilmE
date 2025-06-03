@@ -1,8 +1,7 @@
 import AppNavigator from './Navigator';
-
+import { BASE_URL } from './config';
 
 export default function App() {
-    global.server = "localhost";
-    console.log(global.server);
+    console.log('Server URL:', BASE_URL);
     return (<AppNavigator/>);
 }
